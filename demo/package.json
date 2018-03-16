@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "build-simple": "python3 ../keras_to_deeplearnjs/run.py simple/model.h5 simple/model.js && node_modules/.bin/browserify simple/demo.js -o simple/bundle.js",
-      "build-mnist": "python3 ../keras_to_deeplearnjs/run.py mnist/mnist.h5 mnist/model.js && node_modules/.bin/browserify mnist/mnist.js -o mnist/bundle.js",
+      "build-simple": "python3 ../keras_to_deeplearnjs/run.py simple/model.h5 simple/model.js --weights=simple/weights && node_modules/.bin/browserify simple/demo.js -o simple/bundle.js",
+      "build-mnist": "python3 ../keras_to_deeplearnjs/run.py mnist/mnist.h5 mnist/model.js --weights=mnist/weights && node_modules/.bin/browserify mnist/mnist.js -o mnist/bundle.js",
       "build": "npm run build-simple && npm run build-mnist",
       "serve": "python3 -m http.server",
       "test": "echo \"Error: no test specified\" && exit 1"

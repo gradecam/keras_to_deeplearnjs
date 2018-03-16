@@ -20,19 +20,20 @@
  *
  */
 var dl = require("deeplearn");
-var infer = require('./model');
+var model = require('./model');
 
 // Get sample data.
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'sample_data.json');
 xhr.onload = async () => {
+    await model.load();
     const data = JSON.parse(xhr.responseText);
     console.log(`Evaluation set: n=${data.images.length}.`);
     let numCorrect = 0;
     for (let i = 0; i < data.images.length; i++) {
         const inferred = dl.tidy(() => {
             const x = dl.tensor(data.images[i], [28,28,1]);
-            return infer(x).argMax();
+            return model.infer(x).argMax();
         });
         const predictedLabel = Math.round((await inferred.data())[0]);
         inferred.dispose();
