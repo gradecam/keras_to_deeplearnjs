@@ -14,8 +14,9 @@ In addition, if you want to use the demo projects:
 
 ## Basic Usage
 ```
-python3 keras_to_deeplearnjs/run.py <input keras model.h5> <output commonjs module.js>
+python3 keras_to_deeplearnjs/run.py <input keras model.h5> <output commonjs module.js> --weights <output binary weights file>
 ```
+If `weights` is not provided, the weights will be inlined in the module (which is anticipated to be very inefficient for large models).
 
 ## Supported Layers
 Currently the following layers are supported:
