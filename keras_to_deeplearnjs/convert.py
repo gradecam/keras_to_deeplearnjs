@@ -17,9 +17,6 @@ class LayerConverter:
     def format_op(self, op):
         return op.format(**self.subs)
 
-    def create_op(self, op):
-        return lambda *args: op.format(*[arg.format(**self.subs) for arg in args])
-
     def get_output_name(self):
         return self.layer.output.name
 
@@ -55,6 +52,9 @@ class LayerConverter:
 
         return result
 
+class Input(LayerConverter):
+    kerasLayer = keras.engine.topology.InputLayer
+    op = "input"
 
 class Dense(LayerConverter):
     kerasLayer =  keras.layers.core.Dense
