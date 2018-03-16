@@ -33,6 +33,7 @@ It is quite easy to add support for additional layers, so more layers will be co
 ## Demos
 Demos are contained in the `demo` directory.  To install the demo dependencies:
 ```
+cd demo
 npm install
 ```
 
