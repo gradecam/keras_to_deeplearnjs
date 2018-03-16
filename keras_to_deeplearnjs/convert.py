@@ -51,7 +51,7 @@ class LayerConverter:
         if activation == keras.activations.relu: result = "dl.relu({})".format(result)
         elif activation == keras.activations.linear: pass
         elif activation == keras.activations.softmax: result = "dl.softmax({})".format(result)
-        elif activation is not None: raise Exception("Unknown activation function: " + str(self.layer.activation))
+        elif activation is not False: raise Exception("Unknown activation function: " + str(self.layer.activation))
 
         return result
 
