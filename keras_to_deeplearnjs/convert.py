@@ -102,6 +102,11 @@ class Flatten(LayerConverter):
     kerasLayer = keras.layers.core.Flatten
     op = "dl.reshape({input}, [-1])"
 
+class BatchNormalization(LayerConverter):
+    kerasLayer = keras.layers.normalization.BatchNormalization
+    weights = ['moving_mean', 'moving_variance']
+    op = "dl.batchNormalization({input}, {moving_mean}, {moving_variance})"
+
 
 def get_converter(layer):
     for converter in LayerConverter.__subclasses__():

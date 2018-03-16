@@ -27,6 +27,7 @@ Currently the following layers are supported:
 - Dropout
 - Reshape
 - Flatten
+- BatchNormalization
 
 It is quite easy to add support for additional layers, so more layers will be coming soon, or feel free to submit a PR.
 
