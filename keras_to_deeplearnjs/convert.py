@@ -32,7 +32,7 @@ class LayerConverter:
     def get_deeplearn_weights(self, byteArray = None):
         "Save the weights for deeplearn.js.  If byteArray is passed it is assumed that we are not inlining the weights"
 
-        weight_attrs = getattr(self.__class__, 'weights', [])
+        weight_attrs = [] + getattr(self.__class__, 'weights', [])
 
         if getattr(self.layer, 'bias', None) is not None and not 'bias' in weight_attrs:
             weight_attrs.append('bias')
